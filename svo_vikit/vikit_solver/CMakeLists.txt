@@ -1,15 +1,20 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(vikit_solver)
 find_package(catkin_simple REQUIRED)
+find_package(Glog REQUIRED)
 catkin_simple(ALL_DEPS_REQUIRED)
 
-SET(CMAKE_BUILD_TYPE Release) # Release, RelWithDebInfo
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++11")
+SET(CMAKE_BUILD_TYPE Release) # Release, Release
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++14")
+
+add_compile_definitions(GLOG_USE_GLOG_EXPORT)
+include_directories(${GLOG_INCLUDE_DIRS})
 
 #############
 # LIBRARIES #
 #############
 cs_add_library(${PROJECT_NAME}
+  ${GLOG_LIBRARIES}
   include/vikit/solver/mini_least_squares_solver.h
   include/vikit/solver/implementation/mini_least_squares_solver.hpp
   src/robust_cost.cpp

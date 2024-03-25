@@ -4,7 +4,11 @@ cmake_minimum_required(VERSION 2.8.3)
 find_package(catkin_simple REQUIRED)
 catkin_simple(ALL_DEPS_REQUIRED)
 find_package(OpenCV REQUIRED)
-
+find_package(Glog REQUIRED)
+add_compile_definitions(GLOG_USE_GLOG_EXPORT)
+ADD_DEFINITIONS(
+    -std=c++14
+)
 include(SvoSetup)
 
 set(HEADERS

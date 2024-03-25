@@ -11,6 +11,7 @@
   <depend>camera_info_manager</depend>
   <depend>dvs_msgs</depend>
   <depend>geometry_msgs</depend>
+  <depend>glog</depend>
   <depend>std_msgs</depend>
   <depend>image_geometry</depend>
   <depend>image_transport</depend>

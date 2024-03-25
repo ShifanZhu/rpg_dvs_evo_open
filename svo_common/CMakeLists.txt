@@ -1,9 +1,15 @@
 project(svo_common)
 cmake_minimum_required(VERSION 2.8.3)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++14")
+ADD_DEFINITIONS(
+    -std=c++14
+)
+
 
 find_package(catkin_simple REQUIRED)
 catkin_simple()
-
+find_package(Glog REQUIRED)
+add_compile_definitions(GLOG_USE_GLOG_EXPORT)
 include(SvoSetup)
 
 set(HEADERS
@@ -24,8 +30,9 @@ set(SOURCES
   src/frame.cpp
   src/point.cpp
   )
+  include_directories(${GLOG_INCLUDE_DIRS})
 
-cs_add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+cs_add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${GLOG_LIBRARIES})
 
 ################################################################################
 cs_install()

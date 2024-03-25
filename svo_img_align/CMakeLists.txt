@@ -5,7 +5,11 @@ find_package(catkin_simple)
 catkin_simple()
 
 include(SvoSetup)
-
+find_package(Glog REQUIRED)
+add_compile_definitions(GLOG_USE_GLOG_EXPORT)
+ADD_DEFINITIONS(
+    -std=c++14
+)
 set(HEADERS_CPU
   include/svo/img_align/sparse_img_align_base.h
   include/svo/img_align/sparse_img_align.h

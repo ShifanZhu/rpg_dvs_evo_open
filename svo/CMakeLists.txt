@@ -10,7 +10,11 @@ option(SVO_WITH_PANGOLIN "option to use PANGOLIN within SVO" OFF)
 ################################################################################
 find_package(catkin_simple)
 catkin_simple()
-
+find_package(Glog REQUIRED)
+add_compile_definitions(GLOG_USE_GLOG_EXPORT)
+ADD_DEFINITIONS(
+    -std=c++14
+)
 ################################################################################
 # generic setup (compiler flags, etc.)
 include(SvoSetup)

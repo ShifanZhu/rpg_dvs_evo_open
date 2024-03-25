@@ -7,15 +7,17 @@ catkin_simple(ALL_DEPS_REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system)
 include_directories(${Boost_INCLUDE_DIRS})
 
+find_package(Glog REQUIRED)
+add_compile_definitions(GLOG_USE_GLOG_EXPORT)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 find_package(PCL 1.7 REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
 
-SET(CMAKE_BUILD_TYPE RelWithDebInfo) # Release, RelWithDebInfo
+SET(CMAKE_BUILD_TYPE Release) # Release, Release
 ADD_DEFINITIONS(
-    -std=c++11
+    -std=c++14
     -Wno-ignored-qualifiers
     -w
 )
@@ -68,6 +70,7 @@ target_link_libraries(dvs_bootstrapping_frontoplanar_ros
   ${PROJECT_NAME}_frontoplanar
   ${OpenCV_LIBS}
   ${PCL_LIBS}
+  glog::glog
 )
 
 # cs_add_executable(dvs_bootstrapping_harris_ros src/dvs_bootstrapping_harris_ros.cpp)
@@ -82,6 +85,7 @@ target_link_libraries(dvs_bootstrapping_ef_ros
   ${PROJECT_NAME}_ef
   ${OpenCV_LIBS}
   ${Boost_INCLUDE_DIRS}
+  glog::glog
 )
 
 ################################################################################

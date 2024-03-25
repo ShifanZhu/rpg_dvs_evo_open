@@ -15,11 +15,13 @@ include_directories(${PCL_INCLUDE_DIRS})
 
 
 
+find_package(Glog REQUIRED)
+add_compile_definitions(GLOG_USE_GLOG_EXPORT)
 
-
-SET(CMAKE_BUILD_TYPE RelWithDebInfo) # Release, RelWithDebInfo)
+SET(CMAKE_BUILD_TYPE Release) # Release, Release)
 ADD_DEFINITIONS(
     -Wno-ignored-qualifiers
+    -std=c++14
 )
 
 SET(CMAKE_CXX_FLAGS "-pthread")
@@ -33,7 +35,7 @@ ENDIF()
 IF(CMAKE_COMPILER_IS_GNUCC)
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 ELSE()
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 ENDIF()
 
 SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -fsee -fomit-frame-pointer -fno-signed-zeros -fno-math-errno -funroll-loops")
@@ -61,11 +63,11 @@ cs_add_executable(dvs_tracking_ros src/dvs_tracking_ros.cpp)
 target_link_libraries(dvs_tracking_ros ${PROJECT_NAME}
   ${OpenCV_LIBS}
   ${PCL_LIBRARIES}
+  glog::glog
 )
 
 cs_add_library(dvs_tracking_nodelet src/dvs_tracking_nodelet.cpp)
-target_link_libraries(dvs_tracking_nodelet ${PROJECT_NAME})
-
+target_link_libraries(dvs_tracking_nodelet ${PROJECT_NAME} glog::glog)
 
 
 ################################################################################

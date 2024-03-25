@@ -1,5 +1,5 @@
-SET(CMAKE_BUILD_TYPE Release) # Release, RelWithDebInfo
-#SET(CMAKE_BUILD_TYPE Debug) # Release, RelWithDebInfo
+SET(CMAKE_BUILD_TYPE Release) # Release, Release
+#SET(CMAKE_BUILD_TYPE Debug) # Release, Release
 SET(CMAKE_VERBOSE_MAKEFILE OFF)
 
 # user build settings
@@ -38,6 +38,6 @@ ENDIF()
 IF(CMAKE_COMPILER_IS_GNUCC)
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 ELSE()
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 ENDIF()
 SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -fsee -fomit-frame-pointer -fno-signed-zeros -fno-math-errno -funroll-loops -ffast-math -fno-finite-math-only")

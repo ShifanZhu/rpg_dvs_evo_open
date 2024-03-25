@@ -5,7 +5,7 @@
 #  YAMLCPP_FOUND, if false, do not try to link to yaml-cpp
 #  YAMLCPP_LIBNAME, name of yaml library
 #  YAMLCPP_LIBRARY, where to find yaml-cpp
-#  YAMLCPP_LIBRARY_RELEASE, where to find Release or RelWithDebInfo yaml-cpp
+#  YAMLCPP_LIBRARY_RELEASE, where to find Release or Release yaml-cpp
 #  YAMLCPP_LIBRARY_DEBUG, where to find Debug yaml-cpp
 #  YAMLCPP_INCLUDE_DIR, where to find yaml.h
 #  YAMLCPP_LIBRARY_DIR, the directories to find YAMLCPP_LIBRARY
@@ -44,7 +44,7 @@ find_path(YAMLCPP_INCLUDE_DIR
 # find the release yaml-cpp library
 find_library(YAMLCPP_LIBRARY_RELEASE
   NAMES ${YAMLCPP_STATIC} yaml-cpp libyaml-cppmd.lib libyaml-cppmt.lib
-  PATH_SUFFIXES lib64 lib Release RelWithDebInfo
+  PATH_SUFFIXES lib64 lib Release Release
   PATHS
     ${PROJECT_SOURCE_DIR}/dependencies/yaml-cpp-0.5.1/
     ${PROJECT_SOURCE_DIR}/dependencies/yaml-cpp-0.5.1/build

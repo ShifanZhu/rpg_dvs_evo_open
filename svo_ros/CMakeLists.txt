@@ -4,8 +4,14 @@ cmake_minimum_required(VERSION 2.8.3)
 find_package(catkin_simple REQUIRED)
 find_package(rostest REQUIRED)
 catkin_simple()
-find_package(OpenCV 3 REQUIRED)
-
+find_package(OpenCV 4 REQUIRED)
+find_package(Glog REQUIRED)
+add_compile_definitions(GLOG_USE_GLOG_EXPORT)
+ADD_DEFINITIONS(
+    -std=c++14
+)
+# find_package(yaml-cpp 0.6 REQUIRED)
+# include_directories(${yaml-cpp_INCLUDE_DIRS})
 include(SvoSetup)
 
 set(USE_GTSAM false)
@@ -37,13 +43,13 @@ if(USE_GTSAM)
 endif()
 
 cs_add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
-target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBRARIES} ${svo_backend_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBRARIES} ${svo_backend_LIBRARIES} yaml-cpp)
 
 cs_add_executable(svo_node src/svo_node.cpp)
-target_link_libraries(svo_node ${PROJECT_NAME})
+target_link_libraries(svo_node ${PROJECT_NAME} yaml-cpp)
 
 cs_add_library(svo_nodelet src/svo_nodelet.cpp)
-target_link_libraries(svo_nodelet ${PROJECT_NAME})
+target_link_libraries(svo_nodelet ${PROJECT_NAME} yaml-cpp)
 
 cs_install()
 install(FILES svo_nodelet.xml
