@@ -2,7 +2,7 @@ project(dvs_mapping)
 cmake_minimum_required(VERSION 2.8.3)
 
 find_package(catkin_simple REQUIRED)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 4.2 REQUIRED)
 find_package(Glog REQUIRED)
 catkin_simple(ALL_DEPS_REQUIRED)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++14")

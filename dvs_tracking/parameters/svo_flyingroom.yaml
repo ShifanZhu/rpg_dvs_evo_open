@@ -29,7 +29,7 @@ T_world_imuinit/qz: 0
 T_world_imuinit/qw: 1
 
 # Keyframe selection
-kfselect_criterion: DOWNLOOKING # alterntive: DOWNLOOKING
+kfselect_criterion: DOWNLOOKING # FORWARD #DOWNLOOKING # alterntive: DOWNLOOKING
 # The following kfselect_* ONLY affects FORWARD
 # If the number of features: >upper, no keyframe; <lower, take keyframe
 kfselect_numkfs_upper_thresh: 120

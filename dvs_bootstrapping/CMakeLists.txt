@@ -9,7 +9,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 find_package(Glog REQUIRED)
 add_compile_definitions(GLOG_USE_GLOG_EXPORT)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 4.2 REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 find_package(PCL 1.7 REQUIRED)

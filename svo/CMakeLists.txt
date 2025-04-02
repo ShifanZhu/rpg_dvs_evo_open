@@ -11,6 +11,7 @@ option(SVO_WITH_PANGOLIN "option to use PANGOLIN within SVO" OFF)
 find_package(catkin_simple)
 catkin_simple()
 find_package(Glog REQUIRED)
+find_package(OpenCV 4.2 REQUIRED)
 add_compile_definitions(GLOG_USE_GLOG_EXPORT)
 ADD_DEFINITIONS(
     -std=c++14
@@ -71,7 +72,7 @@ list(APPEND SVO_HEADERFILES
 # Create svo library
 include_directories(include ${INCLUDE_DIRS})
 cs_add_library(svo SHARED ${SVO_SOURCEFILES} ${SVO_HEADERFILES})
-target_link_libraries(svo ${LINK_LIBS})
+target_link_libraries(svo ${LINK_LIBS} ${OpenCV_LIBS} )
 
 ################################################################################
 cs_install()

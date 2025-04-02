@@ -1,6 +1,5 @@
 project(svo_common)
 cmake_minimum_required(VERSION 2.8.3)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++14")
 ADD_DEFINITIONS(
     -std=c++14
 )
@@ -32,8 +31,8 @@ set(SOURCES
   )
   include_directories(${GLOG_INCLUDE_DIRS})
 
-cs_add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${GLOG_LIBRARIES})
-
+cs_add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+target_link_libraries(${PROJECT_NAME} glog::glog)
 ################################################################################
 cs_install()
 cs_export()

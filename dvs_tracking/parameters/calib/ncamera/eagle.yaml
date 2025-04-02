@@ -1,0 +1,48 @@
+cameras:
+  - camera:
+      distortion:
+        parameters:
+          cols: 1
+          rows: 4
+          data: [0.0, 0.0, 0.0, 0.0] #[-0.3687369041657594, 0.1635331561185621, 0.0006758841262625439, -0.0014358423311193668, 0.0]
+        type: radial-tangential
+      image_height: 240
+      image_width: 320
+      intrinsics:
+        cols: 1
+        rows: 4
+        data:
+          [
+            270.029,
+            267.858,
+            142.05,
+            116.297,
+          ]
+      label: cam0
+      line-delay-nanoseconds: 0
+      type: pinhole
+    T_B_C:
+      cols: 4
+      rows: 4
+      data:
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+        ]
+    serial_no: eagle
+    calib_date: 28/03/2021
+label: eagle

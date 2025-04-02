@@ -4,7 +4,7 @@ set(CMAKE_BUILD_TYPE Release)
 find_package(catkin_simple REQUIRED)
 catkin_simple(ALL_DEPS_REQUIRED)
 
-# find_package(OpenCV REQUIRED)
+# find_package(OpenCV 4.2 REQUIRED)
 # include_directories(${OpenCV_INCLUDE_DIRS})
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++14")
 find_package(Glog REQUIRED CONFIG)

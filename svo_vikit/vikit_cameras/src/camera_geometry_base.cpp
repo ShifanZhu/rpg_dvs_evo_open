@@ -4,7 +4,7 @@
 #include <utility>
 
 #include <glog/logging.h>
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui.hpp>
 
 #include <vikit/cameras/yaml/camera-yaml-serialization.h>
 #include <aslam/common/yaml-serialization.h>

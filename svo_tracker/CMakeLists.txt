@@ -9,6 +9,7 @@ ADD_DEFINITIONS(
     -std=c++14
 )
 include(SvoSetup)
+find_package(OpenCV 4.2 REQUIRED)
 
 set(HEADERS
   include/svo/tracker/feature_tracking_types.h
@@ -25,6 +26,7 @@ set(SOURCES
   )
 
 cs_add_library(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 
 ################################################################################
 cs_install()

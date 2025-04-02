@@ -1,0 +1,52 @@
+image_width: 640
+image_height: 480
+camera_name: eds
+camera_matrix:
+  rows: 3
+  cols: 3
+  data:
+    [
+      560.852,
+      0.0, 
+      313.007,
+      0.0,
+      560.630,
+      217.329,
+      0.0,
+      0.0,
+      1.0,
+    ]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data:
+    [
+      -0.0977,
+      0.2143,
+      -0.00471,
+      -0.0042159,
+      0.0,
+    ]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data:
+    [
+      560.852,
+      0.0,
+      313.007,
+      0.0,
+      0.0,
+      560.630,
+      217.329,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+    ]

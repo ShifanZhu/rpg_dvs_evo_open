@@ -7,7 +7,7 @@
 #include <glog/logging.h>
 #include <svo/common/types.h>
 #include <aslam/common/macros.h>
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui.hpp>
 
 namespace svo {
 namespace dataset {
